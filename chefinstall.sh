@@ -33,10 +33,29 @@ chef-server-ctl org-user-add $ORGANIZATION_SHORT_NAME $USERNAME --admin
 chef-server-ctl install opscode-reporting
 chef-server-ctl reconfigure
 chef-chef-server-ctl install chef-manage
-# Next command prompts for agreement; it cannot be automated.
-# opscode-reporting-ctl reconfigure
 
 # Reconfigure and start the server
 chef-server-ctl reconfigure
 chef-server-ctl stop
 chef-server-ctl start
+
+# Next command prompts for agreement; it cannot be automated.
+# opscode-reporting-ctl reconfigure
+
+# Install certificates according to https://docs.chef.io/config_rb_analytics.html. Add the following lines manually to /etc/opscode/chef-server.rb.
+# cat >> /etc/opscode/chef-server.rb <<EOF
+# nginx['ssl_certificate']  =
+# "/see/your/docs.pem"
+# nginx['ssl_certificate_key']  =
+# "/see/your/docs.pem"
+# nginx['ssl_ciphers'] = "see:your:docs"
+# nginx['ssl_protocols'] = 'see your docs'
+# EOF
+
+# Reconfigure manage chef manually. This command prompts for agreement; it cannot be automated.
+# chef-manage-ctl reconfigure
+
+# Reconfigure and start the server again
+# chef-server-ctl reconfigure
+# chef-server-ctl stop
+# chef-server-ctl start
