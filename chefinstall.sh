@@ -29,6 +29,7 @@ chef-server-ctl org-create $ORGANIZATION_SHORT_NAME \'$ORGANIZATION_FULL_NAME\` 
 # Install chef manage (web console)
 chef-server-ctl install opscode-reporting
 chef-server-ctl reconfigure
+chef-chef-server-ctl install chef-manage
 # Next command prompts for agreement; it cannot be automated.
 # opscode-reporting-ctl reconfigure
 
