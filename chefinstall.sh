@@ -24,12 +24,13 @@ sleep 5
 echo \'$PASSWORD\' | sudo -S chef-server-ctl user-create $USERNAME $FIRST_NAME $LAST_NAME $USER_EMAIL \'$PASSWORD\' --filename /home/$USERNAME/$USERNAME.pem
 
 # Create organization
-echo \'$PASSWORD\' | sudo -S sudo chef-server-ctl org-create $ORGANIZATION_SHORT_NAME \'$ORGANIZATION_FULL_NAME\' --filename ~/$ORGANIZATION_SHORT_NAME-validator.pem
+echo \'$PASSWORD\' | sudo -S chef-server-ctl org-create $ORGANIZATION_SHORT_NAME \'$ORGANIZATION_FULL_NAME\' --filename ~/$ORGANIZATION_SHORT_NAME-validator.pem
 
 # Install chef manage (web console)
 chef-server-ctl install opscode-reporting
 chef-server-ctl reconfigure
-opscode-reporting-ctl reconfigure
+# Next command prompts for agreement; it cannot be automated.
+# opscode-reporting-ctl reconfigure
 
 # Reconfigure and start the server
 chef-server-ctl reconfigure
