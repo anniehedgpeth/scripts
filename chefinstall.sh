@@ -26,6 +26,9 @@ chef-server-ctl user-create $USERNAME $FIRST_NAME $LAST_NAME $USER_EMAIL $PASSWO
 # Create organization
 chef-server-ctl org-create $ORGANIZATION_SHORT_NAME \'$ORGANIZATION_FULL_NAME\` --filename ~/$ORGANIZATION_SHORT_NAME-validator.pem
 
+# Add user to organization as an administrator
+chef-server-ctl org-user-add $ORGANIZATION_SHORT_NAME $USERNAME --admin
+
 # Install chef manage (web console)
 chef-server-ctl install opscode-reporting
 chef-server-ctl reconfigure
