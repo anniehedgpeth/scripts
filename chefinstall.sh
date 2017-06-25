@@ -42,6 +42,12 @@ chef-server-ctl start
 # Next command prompts for agreement; it cannot be automated.
 # opscode-reporting-ctl reconfigure
 
+# **** This may be able to be automated if the opscode file exits at install.
+# Change FQDN in chef-server.rb
+# cat >> /etc/opscode/chef-server.rb <<EOF
+# api_fqdn = 'testmanagechef.southcentralus.cloudapp.azure.com'
+# EOF
+
 # Install certificates according to https://docs.chef.io/config_rb_analytics.html. Add the following lines manually to /etc/opscode/chef-server.rb.
 # cat >> /etc/opscode/chef-server.rb <<EOF
 # nginx['ssl_certificate']  =
