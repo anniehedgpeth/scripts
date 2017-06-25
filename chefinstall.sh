@@ -32,7 +32,7 @@ chef-server-ctl org-user-add $ORGANIZATION_SHORT_NAME $USERNAME --admin
 # Install chef manage (web console)
 chef-server-ctl install opscode-reporting
 chef-server-ctl reconfigure
-chef-chef-server-ctl install chef-manage
+chef-server-ctl install chef-manage
 
 # Reconfigure and start the server
 chef-server-ctl reconfigure
