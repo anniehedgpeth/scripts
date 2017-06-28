@@ -18,6 +18,7 @@ rpm -Uvh $AUTOMATE_DOWNLOAD_URL
 
 # Do a preflight-check
 automate-ctl prelight-check
+chfs -a size=80G /var
 
 # Configure Automate server; ensure that the delivery.license is on the Chef Server
 automate-ctl setup --license "/home/$ADMIN_USERNAME/$AUTOMATE_LICENSE" \ 
